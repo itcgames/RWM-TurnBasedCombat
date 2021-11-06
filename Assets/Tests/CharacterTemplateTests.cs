@@ -9,7 +9,7 @@ public class TestSuite
     [SetUp]
     public void Setup()
     {
-        m_characterPrefab = Resources.Load("Prefabs/CharacterTemplate") as GameObject;
+        m_characterPrefab = Resources.Load<GameObject>("Prefabs/CharacterTemplate");
     }
 
     [TearDown]
@@ -26,5 +26,15 @@ public class TestSuite
         yield return new WaitForSeconds(0.1f);
 
         Assert.AreEqual(m_characterPrefab.GetComponent<CharacterAttributes>().FindAttribute("Hit Points").Value, 200);
+    }
+
+    [UnityTest]
+    public IEnumerator SetupSprite()
+    {
+        m_characterPrefab = Object.Instantiate(m_characterPrefab);
+        m_characterPrefab.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprite/ship");
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.AreEqual(m_characterPrefab.GetComponent<SpriteRenderer>().sprite.name, "ship");
     }
 }
