@@ -9,6 +9,15 @@ public class Attribute
     [SerializeField]
     private float m_value;
 
-    public string name() { return m_name; }
-    public float value() { return m_value; }
+    public float Value
+    {
+        get { return m_value; }
+        set { m_value = value; }
+    }
+
+    public string Name
+    {
+        get { return m_name; }
+        set { m_name = value; }
+    }
 }
