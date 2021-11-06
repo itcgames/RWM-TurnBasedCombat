@@ -10,6 +10,12 @@ public class CharacterAttributes : MonoBehaviour
     [SerializeField]
     private bool m_playable;
 
+    public bool Playable
+    {
+        get { return m_playable; }
+        set { m_playable = value; }
+    }
+
     [SerializeField]
     private List<Attribute> m_attributes;
 

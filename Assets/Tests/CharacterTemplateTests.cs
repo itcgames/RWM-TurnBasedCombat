@@ -19,7 +19,7 @@ public class TestSuite
     }
 
     [UnityTest]
-    public IEnumerator SetupCombatValues()
+    public IEnumerator SetupCombatValuesTest()
     {
         m_characterPrefab = Object.Instantiate(m_characterPrefab);
         m_characterPrefab.GetComponent<CharacterAttributes>().SetAttribute("Hit Points", 200);
@@ -29,12 +29,22 @@ public class TestSuite
     }
 
     [UnityTest]
-    public IEnumerator SetupSprite()
+    public IEnumerator SetupSpriteTest()
     {
         m_characterPrefab = Object.Instantiate(m_characterPrefab);
         m_characterPrefab.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprite/ship");
         yield return new WaitForSeconds(0.1f);
 
         Assert.AreEqual(m_characterPrefab.GetComponent<SpriteRenderer>().sprite.name, "ship");
+    }
+
+    [UnityTest]
+    public IEnumerator playableStatusTest()
+    {
+        m_characterPrefab = Object.Instantiate(m_characterPrefab);
+        m_characterPrefab.GetComponent<CharacterAttributes>().Playable = true;
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.AreEqual(m_characterPrefab.GetComponent<CharacterAttributes>().Playable, true);
     }
 }
