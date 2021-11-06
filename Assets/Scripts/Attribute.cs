@@ -9,6 +9,12 @@ public class Attribute
     [SerializeField]
     private float m_value;
 
+    public Attribute(string name, float value)
+    {
+        m_name = name;
+        m_value = value;
+    }
+
     public float Value
     {
         get { return m_value; }

@@ -40,6 +40,11 @@ public class CharacterAttributes : MonoBehaviour
         }
     }
 
+    public void AddAttribute(Attribute attribute)
+    {
+        m_attributes.Add(attribute);
+    }
+
     public Attribute FindAttribute(string name)
     {
         return m_attributes.Find(attribute => attribute.Name == name);

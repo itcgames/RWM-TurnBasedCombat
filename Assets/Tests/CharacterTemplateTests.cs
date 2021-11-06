@@ -47,4 +47,14 @@ public class TestSuite
 
         Assert.AreEqual(m_characterPrefab.GetComponent<CharacterAttributes>().Playable, true);
     }
+
+    [UnityTest]
+    public IEnumerator customAttributeTest()
+    {
+        m_characterPrefab = Object.Instantiate(m_characterPrefab);
+        m_characterPrefab.GetComponent<CharacterAttributes>().AddAttribute(new Attribute("Luck", 20));
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.AreEqual(m_characterPrefab.GetComponent<CharacterAttributes>().FindAttribute("Luck").Name, "Luck");
+    }
 }
