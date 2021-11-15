@@ -32,4 +32,18 @@ public class FirstStrikeChanceTests
 
         Assert.AreEqual(script.FirstStrikeCheckTestVer(randomValSim), false);
     }
+
+    [UnityTest]
+    public IEnumerator CalculateFirstStrikeChanceUsingBooleanExprTest()
+    {
+        m_gamePrefab = Object.Instantiate(m_gamePrefab);
+        FirstStrikeChance script = m_gamePrefab.GetComponent<FirstStrikeChance>();
+
+        script.SetType(FirstStrikeChance.CheckType.BooleanExpressions);
+        script.SetOnAdvantage(true);
+
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.AreEqual(script.FirstStrikeCheckTestVer(0.0f), true);
+    }
 }
