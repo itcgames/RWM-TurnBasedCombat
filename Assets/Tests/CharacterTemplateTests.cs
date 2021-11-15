@@ -3,7 +3,7 @@ using UnityEngine.TestTools;
 using NUnit.Framework;
 using System.Collections;
 
-public class TestSuite
+public class CharacterTemplateTests
 {
     private GameObject m_characterPrefab;
     [SetUp]
