@@ -37,6 +37,17 @@ public class FirstStrikeChance : MonoBehaviour
         m_type = type;
     }
 
+    public void SetOnAdvantage(bool cond)
+    {
+        m_onAdvantage = cond;
+    }
+
+    public void SetAttribute(string name, float val)
+    {
+        m_attribute.Name = name;
+        m_attribute.Value = val;
+    }
+
     public bool FirstStrikeCheck()
     {
         switch(m_type)
@@ -47,6 +58,21 @@ public class FirstStrikeChance : MonoBehaviour
                 return Random.Range(1.0f, 100.0f) > m_successThreshold;
             case CheckType.RandomInfluencedByAnATTR:
                 return Random.Range(1.0f, 100.0f) > m_successThreshold - (m_attribute.Value / 2.0f);
+            default:
+                return false;
+        }
+    }
+
+    public bool FirstStrikeCheckTestVer(float randVal)
+    {
+        switch (m_type)
+        {
+            case CheckType.BooleanExpressions:
+                return m_onAdvantage == true;
+            case CheckType.Random:
+                return randVal > m_successThreshold;
+            case CheckType.RandomInfluencedByAnATTR:
+                return randVal > m_successThreshold - (m_attribute.Value / 2.0f);
             default:
                 return false;
         }
