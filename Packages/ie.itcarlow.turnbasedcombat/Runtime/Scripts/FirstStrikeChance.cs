@@ -20,6 +20,7 @@ public class FirstStrikeChance : MonoBehaviour
     [SerializeField]
     private Attribute m_attribute;
 
+    [SerializeField]
     private float m_successThreshold = 80.0f;
 
     // Start is called before the first frame update

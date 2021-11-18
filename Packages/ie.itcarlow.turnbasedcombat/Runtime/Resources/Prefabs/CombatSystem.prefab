@@ -48,3 +48,4 @@ MonoBehaviour:
   m_attribute:
     m_name: Speed
     m_value: 10
+  m_successThreshold: 80
