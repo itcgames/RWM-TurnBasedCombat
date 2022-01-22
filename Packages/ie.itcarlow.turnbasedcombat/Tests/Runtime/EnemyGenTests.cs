@@ -1,28 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.TestTools;
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Collections;
 
-namespace Tests
+public class EnemyGenTests
 {
-    public class EnemyGenTests
+    [SetUp]
+    public void Setup()
     {
-        // A Test behaves as an ordinary method
-        [Test]
-        public void EnemyGenTestsSimplePasses()
-        {
-            // Use the Assert class to test conditions
-        }
 
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
-        [UnityTest]
-        public IEnumerator EnemyGenTestsWithEnumeratorPasses()
-        {
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
-            yield return null;
-        }
+    }
+
+    [TearDown]
+    public void Teardown()
+    {
+    }
+
+    [UnityTest]
+    public IEnumerator EnemyGenerationTest()
+    {
+        GameObject gameController = new GameObject();
+        gameController.AddComponent<EnemyGen>();
+
+        gameController.GetComponent<EnemyGen>().GenerateEnemies(1);
+
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.AreEqual(gameController.GetComponent<EnemyGen>().EnemyList[0].GetComponent<CharacterAttributes>().Name, "Wolf");
     }
 }
