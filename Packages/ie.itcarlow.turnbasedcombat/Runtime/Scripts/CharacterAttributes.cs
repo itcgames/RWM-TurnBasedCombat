@@ -10,6 +10,12 @@ public class CharacterAttributes : MonoBehaviour
     [SerializeField]
     private bool m_playable;
 
+    public string Name
+    {
+        get { return m_name; }
+        set { m_name = value; }
+    }
+
     public bool Playable
     {
         get { return m_playable; }
@@ -17,7 +23,13 @@ public class CharacterAttributes : MonoBehaviour
     }
 
     [SerializeField]
-    private List<Attribute> m_attributes;
+    private List<Attribute> m_attributes = new List<Attribute>();
+
+    public List<Attribute> Attributes
+    {
+        get { return m_attributes; }
+        set { m_attributes = value; }
+    }
 
     // Start is called before the first frame update
     void Start()
