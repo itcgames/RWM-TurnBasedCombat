@@ -16,7 +16,7 @@ public class EnemyGen : MonoBehaviour
             CharacterAttributes attrs = new CharacterAttributes();
             attrs.Name = "Wolf";
             attrs.AddAttribute(new Attribute("HP", 25));
-            attrs.AddAttribute(new Attribute("Attack", 19));
+            attrs.AddAttribute(new Attribute("DMG", 19));
 
             GameObject characterTemp = CharacterUtil.CreateCharacter(attrs, null);
             GameObject enemy = Instantiate(characterTemp);
